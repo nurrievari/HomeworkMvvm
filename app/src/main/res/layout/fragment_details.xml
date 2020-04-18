@@ -1,0 +1,114 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <data>
+        <variable
+            name="country"
+            type="ru.itis.homeworkmvvm.data.model.Country" />
+    </data>
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        tools:context=".ui.view.DetailsFragment"
+        android:background="@drawable/back">
+
+        <ImageView
+            android:id="@+id/iv_flag"
+            android:layout_marginTop="10dp"
+            android:layout_width="200dp"
+            android:layout_height="100dp"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.497"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            app:srcCompat="@drawable/ic_launcher_foreground" />
+
+        <TextView
+            android:id="@+id/name"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="20dp"
+            style="@style/Statistic"
+            android:text="@{country.country}"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/iv_flag" />
+
+        <TextView
+            android:id="@+id/tv_total_cases"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textColor="@color/infected"
+            style="@style/Statistic"
+            android:text="@{`Total confirmed: ` + country.cases}"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/name" />
+
+        <TextView
+            android:id="@+id/tv_today_cases"
+            style="@style/Statistic"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@{`Today confirmed: ` + country.todayCases}"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/tv_total_cases" />
+
+        <TextView
+            android:id="@+id/tv_total_deaths"
+            android:textColor="@color/death"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@{`Total deaths: ` + country.deaths}"
+            style="@style/Statistic"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/tv_today_cases" />
+
+        <TextView
+            android:id="@+id/tv_today_deaths"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            style="@style/Statistic"
+            android:text="@{`Today deaths: ` + country.todayDeaths}"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/tv_total_deaths" />
+
+        <TextView
+            android:id="@+id/tv_active"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            style="@style/Statistic"
+            android:textColor="@color/active"
+            android:text="@{`Active cases : ` + country.active}"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/tv_today_deaths" />
+
+        <TextView
+            android:id="@+id/tv_recovered"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textColor="@color/recovered"
+            style="@style/Statistic"
+            android:text="@{`Recovered :` + country.recovered}"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/tv_active" />
+
+        <TextView
+            android:id="@+id/tv_tests"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            style="@style/Statistic"
+            android:text="@{`Total tests: ` + country.tests}"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/tv_recovered" />
+    </androidx.constraintlayout.widget.ConstraintLayout>
+</layout>
